@@ -79,6 +79,35 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <environmentVariables>
+                        <THUNDRA_AGENT_LAMBDA_REPORT_REST_BASEURL>https://collector.thundra.me/v1</THUNDRA_AGENT_LAMBDA_REPORT_REST_BASEURL>
+                    </environmentVariables>
+                    <argLine>-javaagent:thundra-agent-bootstrap.jar -Dthundra.agent.report.rest.baseurl=https://collector.thundra.me/v1 -Dthundra.apiKey=1d8b3f85-0227-4fdc-813c-74b4c4503bbe -Dthundra.agent.test.project.id=1ee83a52-d550-4b21-997b-7ed679c7be68</argLine>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <configuration>
+                    <environmentVariables>
+                        <THUNDRA_AGENT_LAMBDA_REPORT_REST_BASEURL>https://collector.thundra.me/v1</THUNDRA_AGENT_LAMBDA_REPORT_REST_BASEURL>
+                    </environmentVariables>
+                    <argLine>-javaagent:thundra-agent-bootstrap.jar -Dthundra.agent.report.rest.baseurl=https://collector.thundra.me/v1 -Dthundra.apiKey=1d8b3f85-0227-4fdc-813c-74b4c4503bbe -Dthundra.agent.test.project.id=1ee83a52-d550-4b21-997b-7ed679c7be68</argLine>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
         </plugins>
     </build>
 
