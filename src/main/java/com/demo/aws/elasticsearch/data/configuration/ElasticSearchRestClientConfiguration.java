@@ -31,7 +31,7 @@ public class ElasticSearchRestClientConfiguration extends AbstractElasticsearchC
      * SpringDataElasticSearch data provides us the flexibility to implement our custom {@link RestHighLevelClient} instance by implementing the abstract method {@link AbstractElasticsearchConfiguration#elasticsearchClient()},
      *
      * @return RestHighLevelClient. AWS ElasticService Https rest calls have to be signed with AWS credentials, hence an interceptor {@link HttpRequestInterceptor} is required to sign every
-     * API calls with credentials. The signing is happening through the below snippet
+
      * <code>
      * signer.sign(signableRequest, awsCredentialsProvider.getCredentials());
      * </code>

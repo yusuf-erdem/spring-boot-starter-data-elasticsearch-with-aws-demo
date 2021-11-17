@@ -9,7 +9,7 @@ import org.springframework.data.elasticsearch.annotations.Document;
  * create and index during application boot
  */
 @Data
-@Document(indexName = "dev_photos", type = "_doc", createIndex = false)
+@Document(indexName = "dev_photos", type = "_doc")
 public class PhotoDocument {
     @Id
     private String id;
